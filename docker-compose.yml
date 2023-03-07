@@ -15,14 +15,6 @@ services:
       - 'mb-data:/var/lib/postgres/data'
         # source: ${DB_OUTSIDE_VOLUME}
         # target: ${DB_INSIDE_VOLUME}
- 
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - '${ADMINER_PORT}:8080'
-    depends_on:
-      - 'db'
 
   metabase:
     image: metabase/metabase
@@ -44,6 +36,7 @@ services:
       - 'mb-data:/metabase-data'
     depends_on:
       - 'db'
+  
 
 volumes:
   db-data:
