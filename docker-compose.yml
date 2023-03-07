@@ -12,9 +12,9 @@ services:
         db_port: ${DB_PORT}
     restart: always
     volumes:
-      - type: 'volume'
-        source: ${DB_OUTSIDE_VOLUME}
-        target: ${DB_INSIDE_VOLUME}
+      - 'mb-data:/var/lib/postgres/data'
+        # source: ${DB_OUTSIDE_VOLUME}
+        # target: ${DB_INSIDE_VOLUME}
  
   adminer:
     image: adminer
